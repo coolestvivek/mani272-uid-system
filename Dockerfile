@@ -13,15 +13,16 @@ RUN apt-get update && apt-get install -y \
 # Copy requirements first for caching
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir mitmproxy
 
 # Copy application code
 COPY . .
 
 # Create necessary directories
-RUN mkdir -p /app/database /app/whitelists
+RUN mkdir -p /app/database /app/whitelists /app/certs
 
-# Expose ports
-EXPOSE 8247
+# Expose ports - Web (8247) and MITM Proxy (7934)
+EXPOSE 8247 7934
 
-# Run the Flask app
-CMD ["python", "app.py"]
+# Run both Flask and MITM Proxy
+CMD ["python", "start_all.py"]
