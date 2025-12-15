@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # Flask Web Dashboard
+  web:
+    build: .
+    container_name: mani272-web
+    ports:
+      - "8247:8247"
+    environment:
+      - FLASK_ENV=production
+      - SECRET_KEY=mani272-secure-key-change-in-production
+    volumes:
+      - ./database:/app/database
+      - ./whitelists:/app/whitelists
+    restart: unless-stopped
+    networks:
+      - mani272-network
+
+  # MITM Proxy (optional - run separately if needed)
+  mitmproxy:
+    image: mitmproxy/mitmproxy:latest
+    container_name: mani272-proxy
+    command: mitmdump -s /app/mitmproxyutils.py -p 7934 --listen-host 0.0.0.0 --set block_global=false
+    ports:
+      - "7934:7934"
+    volumes:
+      - ./:/app
+      - ./certs:/home/mitmproxy/.mitmproxy
+    restart: unless-stopped
+    networks:
+      - mani272-network
+
+networks:
+  mani272-network:
+    driver: bridge
