@@ -43,8 +43,12 @@ def main():
         sys.exit(1)
     
     # MITM Proxy command (Port 7934)
+    # Use mitmdump from venv if available
+    import shutil
+    mitmdump_path = shutil.which("mitmdump") or os.path.join(os.path.dirname(sys.executable), "mitmdump")
+    
     mitm_cmd = [
-        "mitmdump",
+        mitmdump_path,
         "-s", mitm_addon,
         "-p", "7934",
         "--listen-host", "0.0.0.0",
