@@ -26,8 +26,8 @@ python start_all.py
 ```
 
 ## Default Credentials
-- **Username**: owner
-- **Password**: owner123
+- **Username**: Mani272
+- **Password**: mani@321
 
 ## Configuration
 - Web runs on port 8247

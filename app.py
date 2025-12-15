@@ -1172,17 +1172,17 @@ if __name__ == '__main__':
         db.create_all()
         
         # Create owner if doesn't exist
-        owner = User.query.filter_by(username='owner').first()
+        owner = User.query.filter_by(username='Mani272').first()
         if not owner:
             owner = User(
-                username='owner',
-                password=generate_password_hash('owner123'),
+                username='Mani272',
+                password=generate_password_hash('mani@321'),
                 role='owner',
                 credits=999999  # Unlimited
             )
             db.session.add(owner)
             db.session.commit()
-            print('✅ Owner created: username=owner, password=owner123')
+            print('✅ Owner created: username=Mani272, password=mani@321')
         
         print('✅ Database ready')
     
@@ -1190,8 +1190,8 @@ if __name__ == '__main__':
     # print('🤖 Starting Discord bot in background...')  # Bot disabled for now
     print('=' * 60)
     print('LOGIN CREDENTIALS:')
-    print('Username: owner')
-    print('Password: owner123')
+    print('Username: Mani272')
+    print('Password: mani@321')
     print('=' * 60)
     
     # Discord bot disabled for now
