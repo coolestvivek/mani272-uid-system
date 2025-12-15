@@ -13,10 +13,12 @@ python-dotenv==1.0.0
 
 # Utilities
 requests==2.31.0
+aiohttp==3.9.1
 
 # Crypto
 pycryptodome==3.19.0
 
 # Protobuf
 protobuf==4.25.1
+
 
