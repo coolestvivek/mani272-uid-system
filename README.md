@@ -42,4 +42,6 @@ python start_all.py
 4. Deploy!
 
 ## Contact
-Discord: https://discord.gg/EdDKpGTCEb
+Discord: https://discord.gg/p4dB8YYMkp
+
+Developed by Vivek
