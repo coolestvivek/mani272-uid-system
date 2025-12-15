@@ -20,5 +20,7 @@ pycryptodome==3.19.0
 
 # Protobuf
 protobuf==4.25.1
+protobuf-decoder==0.2.0
+
 
 
